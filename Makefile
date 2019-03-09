@@ -28,5 +28,5 @@ push:
 	@docker push ${NAME}
 
 login:
-	echo "$DOCKER_PASSWORD" | @docker login -u "$DOCKER_USERNAME" --password-stdin
+	echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
 
