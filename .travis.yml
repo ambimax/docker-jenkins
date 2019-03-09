@@ -4,6 +4,8 @@ services: docker
 env:
   global:
     - DEBUG=true
+    - secure: "fr9eaerA5+PVAM3BRStwOB4zM7OrPiLZdsG2pPmU7EwIh0jtVL2vDRkjxadR54bXbiF/IZauTmvqTsaHmx1Ov4prNVYAZD1kyCY4MYJQfN7LzWX03W5f5gh+McEai1Dj2vd/QMIn6RTY/WBS4hAJzUgkQ1VhFZedeaIcYePDaOOZq0aLCcdDYNS67z5X/lITdR7c+jBoaGZS43YBVMmoTWiBDoJ1vUp2sC10gRUyKXYCssUVhIaqYeCHiHs9V91cbJ+hEIYnPnqhAL8giiDkhiQBIu0CZyX3B4VlwxsB4DHcu7rTqBuEAH+gpumH6x5vMdMb7hsLsL9O8Oc/9RNnsXCy64Xzk3ALcxYDbM73BnVicHPlaj8veJv9ZQa7p4cQORl3PcuqIGkdDdcN6fcyzw/2TkP1XsOUUdAlUQb4zM31Re8/fiDoZVLgdAh6z2z2qof9wDnPeYVlD+g/KLC08zDx8IR6vl4W3lj5IPN2veTHIC0rN53u8uA7dfsUvfYm6hZ8vr46oW5RzrlWfcbVh60eUw+tsA1YA18TnkRRaLhb1Js+ml1s2Nnr/j4iesH1nRCu0XU+sskR6e+Ej3IZAViaKix2dz0LnBq1E2o2t9WDHgSoLo1AcNuOUmUxy1X10M+jhxvfsYs3ilhyBcwRwMWxinupaKwyTBCJrldqfjY="
+    - secure: "Of4lEmPEvX2UjnC998XPT0moeHmpCu9gyb02Nb5L+96X2paQW6tChvCWWjyLu4sclFljRnNqHAnxLNAP/RG8gYDMbuGHx9wtGwyijzqP2kr+yjh1f7UUgTmIPcc3CFyMgCTqkStza5ffVpzB5GF6S3Zuun0KOCG+bFxEd1twMBmgerJ7P46uXkVdtTNVaIGUxq6bhM2by2jw21KkOftCSRlytBJvC6l274j1r1RTkXd0UWb6QISARiONxvu/Xlm31V+/WZG1KoiyWlBhEGA3d4IdfArxiPSuhndeUP8z7iwpT5VAwImePgkp3rjk4leLNJrFsC3X2/338OmbUbdeDmO/2lkvvn1vG8T1gBkrpj6L4Si0YWMoevWmN29ryOfG5REvZ4z7GGnJWUNyyIBHN0uXMfH8qieYDNJz9fYYAjzlaGC/BiIUdwRAqwC56v9/ajqWwlaGrxCtqvGbX/aHYhBbOgmZyC3ylqTWyPw5rmQZROQQHheGZopMdqIFR2mUgRSpAVRu/D2XcDMsXT51acSyCc6vrDB9SOkp4V2eoruBUEy2pqliOMSI0QSEZjxp6b5kG4FC/SOSuSzQd6qsBmzvX3XVZ3/rL6f8sgs90XPClpZolHvKfZbW1A72gAgtUyhDVK2t/5op1rkfzR2+pmFxVCtSNoBiGXgUWUbANUo="
 
 script:
   # Build image
@@ -18,9 +20,6 @@ script:
 after_script:
   - docker images
 
-# To have `DOCKER_USER` and `DOCKER_PASSWORD`
-# use `travis env set DOCKER_USER ...`
-# use `travis env set DOCKER_PASSWORD ...`
 before_deploy:
   - make login
 
