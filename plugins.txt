@@ -1,0 +1,6 @@
+blueocean:latest
+greenballs:latest
+git:latest
+github-oauth:latest
+github:latest
+slack:latest
