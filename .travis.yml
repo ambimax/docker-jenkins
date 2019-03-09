@@ -20,10 +20,7 @@ script:
 after_script:
   - docker images
 
-# To have `DOCKER_USER` and `DOCKER_PASSWORD`
-# use `travis env set DOCKER_USER ...`
-# use `travis env set DOCKER_PASSWORD ...`
-before_script:
+before_deploy:
   - make login
 
 deploy:
