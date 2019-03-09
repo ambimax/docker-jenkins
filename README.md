@@ -1,6 +1,9 @@
 
 # Docker Jenkins
 
+[![Build Status](https://travis-ci.org/ambimax/docker-jenkins.svg?branch=master)](https://travis-ci.org/ambimax/docker-jenkins)
+
+
 Build custom jenkins image for deployment pipeline
 
 ### Login
