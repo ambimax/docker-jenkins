@@ -9,6 +9,20 @@ ARG HOST_DOCKER_GROUP_ID=1200
 ENV JENKINS_USER admin
 ENV JENKINS_PASS 3yApzvqwAcs56Y2d
 
+# Github OAuth
+ENV GITHUB_OAUTH_CLIENT_ID "12345678901234567890"
+ENV GITHUB_OAUTH_CLIENT_SECRET "1234567890123456789012345678901234567890"
+ENV GITHUB_OAUTH_API_URL "https://api.github.com"
+ENV GITHUB_OAUTH_WEB_URL "https://github.com"
+ENV GITHUB_OAUTH_SCOPES "read:org"
+
+ENV GITHUB_OAUTH_ADMIN_USER ""
+ENV GITHUB_OAUTH_ORGANIZATIONS ""
+ENV GITHUB_OAUTH_USE_REPOSITORY_PERMISSION true
+ENV GITHUB_OAUTH_USER_READ_PERMISSION false
+ENV GITHUB_OAUTH_USER_CREATE_JOB_PERMISSION false
+ENV GITHUB_OAUTH_ALLOW_GITHUB_WEBHOOK false
+
 # Skip the initial setup wizard
 ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
 
@@ -30,8 +44,10 @@ USER jenkins
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 
-# Start-up scripts to set number of executors and creating the admin user
+# Start-up scripts
+COPY scripts/csrf.groovy /usr/share/jenkins/ref/init.groovy.d/
+#COPY scripts/default-user.groovy /usr/share/jenkins/ref/init.groovy.d/
 COPY scripts/executors.groovy /usr/share/jenkins/ref/init.groovy.d/
-COPY scripts/default-user.groovy /usr/share/jenkins/ref/init.groovy.d/
+COPY scripts/github-oauth.groovy /usr/share/jenkins/ref/init.groovy.d/
 
 VOLUME /var/jenkins_home

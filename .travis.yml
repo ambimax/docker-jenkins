@@ -12,7 +12,7 @@ script:
   - make build
 
   # run image
-  - make start
+  - make start && sleep 30
 
   # Test image
   - make test
