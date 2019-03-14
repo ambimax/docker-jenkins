@@ -23,6 +23,9 @@ ENV GITHUB_OAUTH_USER_READ_PERMISSION false
 ENV GITHUB_OAUTH_USER_CREATE_JOB_PERMISSION false
 ENV GITHUB_OAUTH_ALLOW_GITHUB_WEBHOOK false
 
+ENV SETTINGS_EMAIL "jenkins@example.com"
+ENV SETTINGS_URL "http://jenkins.docker:8080"
+
 # Skip the initial setup wizard
 ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
 
@@ -49,5 +52,7 @@ COPY scripts/csrf.groovy /usr/share/jenkins/ref/init.groovy.d/
 #COPY scripts/default-user.groovy /usr/share/jenkins/ref/init.groovy.d/
 COPY scripts/executors.groovy /usr/share/jenkins/ref/init.groovy.d/
 COPY scripts/github-oauth.groovy /usr/share/jenkins/ref/init.groovy.d/
+COPY scripts/settings.groovy /usr/share/jenkins/ref/init.groovy.d/
+COPY scripts/security.groovy /usr/share/jenkins/ref/init.groovy.d/
 
 VOLUME /var/jenkins_home
