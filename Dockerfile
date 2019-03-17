@@ -25,6 +25,7 @@ ENV GITHUB_OAUTH_ALLOW_GITHUB_WEBHOOK false
 
 ENV SETTINGS_EMAIL "jenkins@example.com"
 ENV SETTINGS_URL "http://jenkins.docker:8080"
+ENV SETTINGS_EXECUTORS 4
 
 # Skip the initial setup wizard
 ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
